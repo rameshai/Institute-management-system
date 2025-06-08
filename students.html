@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Students</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Additional styles for the students table */
+    .students-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    h1 {
+      color: #005a87;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    thead {
+      background-color: #005a87;
+      color: white;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    tbody tr:hover {
+      background-color: #f1f9ff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Institute Management System</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="students.html" class="active">Students</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="students-container">
+    <h1>Registered Students</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Student ID</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Course Enrolled</th>
+          <th>Enrollment Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- student rows will be loaded dynamically here -->
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Institute Management System</p>
+  </footer>
+
+  <script>
+    const tbody = document.querySelector('tbody');
+
+    function loadStudents() {
+      const students = JSON.parse(localStorage.getItem('students')) || [];
+      if (students.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;">No students enrolled yet.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = '';  // Clear existing rows
+
+      students.forEach(student => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${student.id}</td>
+          <td>${student.name}</td>
+          <td>${student.email}</td>
+          <td>${student.course.replace('-', ' ')}</td>
+          <td>${student.enrollmentDate}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Load students on page load
+    window.onload = loadStudents;
+  </script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background-color: #005a87;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  list-style: none;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+  padding: 30px;
+}
+
+.dashboard {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.info {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.info h3 {
+  margin-bottom: 15px;
+  color: #005a87;
+}
+
+.info p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  background: #005a87;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+.dashboard-content {
+  text-align: center;
+}
+
+.dashboard-content h2 {
+  margin-bottom: 10px;
+  color: #005a87;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  font-size: 18px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.box span {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  color: #005a87;
+  margin-top: 10px;
+}
+
+.box:hover {
+  transform: scale(1.05);
+}
+
+/* Active menu item */
+nav ul li a.active {
+  text-decoration: underline;
+}
+.course-section {
+  text-align: center;
+}
+
+.course-section h2 {
+  color: #005a87;
+  margin-bottom: 20px;
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.course-card {
+  background: white;
+  padding: 20px;
+  width: 260px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  text-align: left;
+}
+
+.course-card h3 {
+  margin-bottom: 10px;
+  color: #005a87;
+}
+
+.course-card p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Active nav highlight */
+nav ul li a.active {
+  text-decoration: underline;
+}
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #005a87;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #007bbd;
+}
+.enroll-form-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.enroll-form {
+  background-color: white;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.enroll-form h2 {
+  margin-bottom: 20px;
+  color: #005a87;
+}
+
+.enroll-form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.enroll-form input,
+.enroll-form select,
+.enroll-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.enroll-form .btn {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  background-color: #005a87;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.enroll-form .btn:hover {
+  background-color: #007bbd;
+}

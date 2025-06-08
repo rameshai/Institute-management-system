@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cloud Computing - Course Details</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Course Details</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="courses.html" class="active">Courses</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="course-detail">
+    <h2>Cloud Computing</h2>
+    <p><strong>Description:</strong> Learn about cloud platforms (AWS, Azure), virtualization, DevOps, Docker, and Kubernetes.</p>
+    <p><strong>Duration:</strong> 9 Weeks</p>
+    <p><strong>Instructor:</strong> Ms. Sravani K</p>
+    <a href="enroll.html" class="btn">Enroll Now</a>
+
+  </main>
+<script>
+    const form = document.querySelector('.enroll-form');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get form values
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const phone = form.phone.value.trim();
+      const course = form.course.value;
+      const message = form.message.value.trim();
+
+      if (!name || !email || !phone || !course) {
+        alert('Please fill all required fields.');
+        return;
+      }
+
+      // Create student object
+      const student = {
+        id: 'ST' + Date.now(),  // unique id
+        name,
+        email,
+        phone,
+        course,
+        message,
+        enrollmentDate: new Date().toISOString().split('T')[0]  // YYYY-MM-DD
+      };
+
+      // Get existing students or empty array
+      const students = JSON.parse(localStorage.getItem('students')) || [];
+
+      // Add new student
+      students.push(student);
+
+      // Save back to localStorage
+      localStorage.setItem('students', JSON.stringify(students));
+
+      alert('Enrollment successful!');
+
+      form.reset();
+    });
+</script>
+  <footer>
+    <p>&copy; 2025 Institute Management System</p>
+  </footer>
+</body>
+</html>
